@@ -14,6 +14,12 @@ provider "aws" {
 locals {
   users_data = yamldecode(file("./users.yaml")).users
 
+ /*yamldecode mule apn convet the data list format karan 
+  without yamldecode to fkt user.yaml ch data show karat hota */
+  // fatch the data, 
+  // file is function  tyacha made path put katayacha/
+  //user_data made yaml cha data fatch kelay 
+
   user_role_pair = flatten([for user in local.users_data : [for role in user.roles : {
     username = user.username
     role     = role
